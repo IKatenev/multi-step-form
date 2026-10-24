@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles-import.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <meta name="theme-color" content="#eef3ff" />
+    <meta name="description" content="Set up your subscription in four easy steps." />
+    <title>Choose your plan — Subscription setup</title>
+  </head>
+
+  <body>
+    <main class="container">
+      <section class="form-wrapper">
+        <!-- Step navigation sidebar -->
+        <aside class="steps" aria-label="Setup progress">
+          <div class="steps__item steps__item--active">
+            <div class="steps__number">1</div>
+            <div class="steps__label">
+              <span>STEP 1</span>
+              <strong>Your info</strong>
+            </div>
+          </div>
+          <div class="steps__item">
+            <div class="steps__number">2</div>
+            <div class="steps__label">
+              <span>STEP 2</span>
+              <strong>Select plan</strong>
+            </div>
+          </div>
+          <div class="steps__item">
+            <div class="steps__number">3</div>
+            <div class="steps__label">
+              <span>STEP 3</span>
+              <strong>Add-ons</strong>
+            </div>
+          </div>
+          <div class="steps__item steps__item-last">
+            <div class="steps__number">4</div>
+            <div class="steps__label">
+              <span>STEP 4</span>
+              <strong>Summary</strong>
+            </div>
+          </div>
+        </aside>
+        <!-- Step navigation sidebar -->
+
+        <!-- Form content -->
+        <form class="form" id="multiStepForm" aria-label="Subscription setup" novalidate>
+          <!-- STEP 1 -->
+          <section class="form__step form__step--active" data-step="1" aria-hidden="false">
+            <div class="form__eyebrow"><span class="form__eyebrow-label">YOUR DETAILS</span><span class="form__eyebrow-count">01 <span aria-hidden="true">/</span> 04</span></div>
+            <h2 class="form__title">Personal information</h2>
+            <p class="form__subtitle">
+              Let’s start with a few details about you.
+            </p>
+
+            <div class="form__input-group">
+              <label for="name"
+                >Name<span class="form__error" id="error-name"
+                  >This field is required</span
+                ></label
+              >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="John Smith"
+                autocomplete="name"
+                required
+                maxlength="30"
+              />
+            </div>
+
+            <div class="form__input-group">
+              <label for="email"
+                >Email address<span class="form__error" id="error-email"
+                  >Enter a valid email address</span
+                ></label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="example@example.com"
+                autocomplete="email"
+                required
+              />
+            </div>
+
+            <div class="form__input-group">
+              <label for="phone"
+                >Phone number<span class="form__error" id="error-phone"
+                  >Enter a valid phone number</span
+                ></label
+              >
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="+7 999 123 45 67"
+                autocomplete="tel"
+                required
+                maxlength="20"
+              />
+            </div>
+          </section>
+          <!-- STEP 1 -->
+
+          <!-- STEP 2 -->
+          <section class="form__step" data-step="2" aria-hidden="true">
+            <div class="form__eyebrow"><span class="form__eyebrow-label">YOUR SUBSCRIPTION</span><span class="form__eyebrow-count">02 <span aria-hidden="true">/</span> 04</span></div>
+            <fieldset class="form__plans-wrapper">
+              <legend class="form__title">Select your plan</legend>
+              <p class="form__subtitle">
+                Choose the plan that works best for you. You can switch billing anytime.
+              </p>
+
+              <div class="form__plans" role="radiogroup">
+                <label class="plan" for="plan-basic">
+                  <input
+                    type="radio"
+                    name="plan"
+                    id="plan-basic"
+                    class="plan__radio-button"
+                    value="basic"
+                    data-monthly="199"
+                    data-yearly="1990"
+                  />
+                  <div class="plan__content">
+                    <strong>Basic</strong>
+                    <span id="price-basic">₽199/mo</span>
+                    <span class="yearly-plan-discount">Save on yearly billing</span>
+                  </div>
+                </label>
+
+                <label class="plan" for="plan-pro">
+                  <input
+                    type="radio"
+                    name="plan"
+                    id="plan-pro"
+                    class="plan__radio-button"
+                    value="pro"
+                    data-monthly="399"
+                    data-yearly="3590"
+                  />
+                  <div class="plan__content">
+                    <strong>Pro</strong>
+                    <span id="price-pro">₽399/mo</span>
+                    <span class="yearly-plan-discount">Save on yearly billing</span>
+                  </div>
+                </label>
+
+                <label class="plan" for="plan-max">
+                  <input
+                    type="radio"
+                    name="plan"
+                    id="plan-max"
+                    class="plan__radio-button"
+                    value="max"
+                    data-monthly="599"
+                    data-yearly="4990"
+                  />
+                  <div class="plan__content">
+                    <strong>Max</strong>
+                    <span id="price-max">₽599/mo</span>
+                    <span class="yearly-plan-discount">Save on yearly billing</span>
+                  </div>
+                </label>
+              </div>
+
+              <div class="toggle-wrapper">
+                <span class="billing-label monthly label-toggled"
+                  >Monthly</span
+                >
+
+                <button
+                  type="button"
+                  id="billingToggle"
+                  class="toggle-button"
+                  aria-pressed="false"
+                  aria-label="Pay yearly instead of monthly"
+                >
+                  <span class="toggle-indicator"></span>
+                </button>
+
+                <span class="billing-label yearly">Yearly</span>
+              </div>
+
+              <span class="plan-error" role="alert">Please select a plan</span>
+            </fieldset>
+          </section>
+          <!-- STEP 2 -->
+
+          <!-- STEP 3 -->
+          <section class="form__step" data-step="3" aria-hidden="true">
+            <div class="form__eyebrow"><span class="form__eyebrow-label">MAKE IT YOURS</span><span class="form__eyebrow-count">03 <span aria-hidden="true">/</span> 04</span></div>
+            <h2 class="form__title">Add-ons</h2>
+            <p class="form__subtitle">Enhance your plan with the features you need.</p>
+
+            <div class="form__checkbox-group">
+              <label class="checkbox" for="support">
+                <input
+                  type="checkbox"
+                  name="support"
+                  value="support"
+                  id="support"
+                  data-monthly="50"
+                  data-yearly="500"
+                />
+                <span class="checkbox__check"></span>
+                <div class="checkbox__label">
+                  <span class="checkbox__label-title">24/7 support</span>
+                  <span class="checkbox__description">Help whenever you need it</span>
+                </div>
+                <span class="checkbox__label-price support">+₽50/mo</span>
+              </label>
+
+              <label class="checkbox" for="cloud-storage">
+                <input
+                  type="checkbox"
+                  name="cloud-storage"
+                  value="cloud"
+                  id="cloud-storage"
+                  data-monthly="100"
+                  data-yearly="1000"
+                />
+                <span class="checkbox__check"></span>
+                <div class="checkbox__label">
+                  <span class="checkbox__label-title">Cloud storage</span>
+                  <span class="checkbox__description">Keep your files close and secure</span>
+                </div>
+                <span class="checkbox__label-price cloud-storage"
+                    >+₽100/mo</span
+                  >
+              </label>
+
+              <label class="checkbox" for="security">
+                <input
+                  type="checkbox"
+                  name="security"
+                  value="security"
+                  id="security"
+                  data-monthly="75"
+                  data-yearly="750"
+                />
+                <span class="checkbox__check"></span>
+
+                <div class="checkbox__label">
+                  <span class="checkbox__label-title">Data protection</span>
+                  <span class="checkbox__description">An extra layer of security</span>
+                </div>
+                <span class="checkbox__label-price security">+₽75/mo</span>
+              </label>
+            </div>
+          </section>
+          <!-- STEP 3 -->
+
+          <!-- STEP 4 -->
+          <section class="form__step" data-step="4" aria-hidden="true">
+            <div class="form__eyebrow"><span class="form__eyebrow-label">FINAL REVIEW</span><span class="form__eyebrow-count">04 <span aria-hidden="true">/</span> 04</span></div>
+            <h2 class="form__title">Review your selection</h2>
+            <p class="form__subtitle">
+              Take one last look before you confirm your subscription.
+            </p>
+
+            <div class="form__summary" aria-live="polite">
+              <div class="form__summary-top">
+                <div id="summary-plan-name"></div>
+                <div id="summary-plan-price"></div>
+              </div>
+
+              <button type="button" id="summary-change-plan">Change plan</button>
+
+              <div class="form__summary-divider"></div>
+
+              <div class="form__summary-addons"></div>
+            </div>
+            <div class="form__summary-total">
+              <div class="form__summary-total-text">Total:</div>
+              <strong class="form__summary-total-price" id="summary-total"
+                >₽0/mo</strong
+              >
+            </div>
+          </section>
+          <!-- STEP 4 -->
+
+          <section class="form__step" data-step="5" aria-hidden="true">
+            <div class="form__thankyou">
+              <img
+                src="assets/images/icon-thank-you.svg"
+                alt="Thank you"
+                class="thankyou__icon"
+              />
+              <h2 class="thankyou__title" tabindex="-1">You’re all set!</h2>
+              <p class="thankyou__text">
+                Your subscription is ready. Thanks for joining us!
+                If you have any questions, contact us at
+                <a href="mailto:ourmail@mail.ru">ourmail@mail.ru</a>.
+              </p>
+            </div>
+          </section>
+
+          <!-- Navigation buttons -->
+          <div class="form__buttons">
+            <button type="button" class="btn btn--secondary" id="prevBtn">
+              Go Back
+            </button>
+            <button type="button" class="btn btn--primary" id="nextBtn">
+              Next Step
+            </button>
+          </div>
+          <!-- Navigation buttons -->
+        </form>
+        <!-- Form content -->
+      </section>
+      <!-- form-wrapper -->
+    </main>
+
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+:root {
+  color-scheme: light;
+  --navy: #102b55;
+  --navy-hover: #1b4276;
+  --purple: #574bff;
+  --purple-hover: #4637e9;
+  --purple-weak: #f1f0ff;
+  --bg: #eef3ff;
+  --white: #fff;
+  --text-muted: #758199;
+  --border: #dbe3f1;
+  --red: #d5365b;
+  --shadow: 0 28px 75px -35px rgba(24, 43, 100, .28), 0 10px 28px -20px rgba(24, 43, 100, .16);
+}
