@@ -176,10 +176,6 @@ nextBtn.addEventListener("click", () => {
   if (currentStep >= steps.length - 1) return;
   if (currentStep === 2) updateSummary();
   showStep(currentStep + 1, true);
-  if (currentStep === steps.length - 1) {
-    // Demo only — replace this with a real API request when a backend is available.
-    console.info("Subscription ready to submit:", structuredClone(formData));
-  }
 });
 prevBtn.addEventListener("click", () => {
   if (currentStep > 0) showStep(currentStep - 1, true);
