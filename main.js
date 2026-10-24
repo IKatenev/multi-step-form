@@ -13,11 +13,13 @@ const navigation = document.querySelector(".form__buttons");
 const billingToggle = document.getElementById("billingToggle");
 const planRadios = [...document.querySelectorAll('input[name="plan"]')];
 const addonInputs = [...document.querySelectorAll('.form__checkbox-group input[type="checkbox"]')];
-const numberFormatter = new Intl.NumberFormat("en-US");
+const currencyFormatter = new Intl.NumberFormat("en-US", {
+  style: "currency", currency: "USD", maximumFractionDigits: 0,
+});
 let currentStep = 0;
 
 function formatPrice(value, period, isAddon = false) {
-  return `${isAddon ? "+" : ""}₽${numberFormatter.format(value)} / ${period}`;
+  return `${isAddon ? "+" : ""}${currencyFormatter.format(value)} / ${period}`;
 }
 function isYearlyBilling() {
   return billingToggle.getAttribute("aria-pressed") === "true";
@@ -120,7 +122,7 @@ function updatePrices() {
     document.getElementById(`price-${input.value}`).textContent = formatPrice(price, period);
     const savings = Number(input.dataset.monthly) * 12 - Number(input.dataset.yearly);
     const note = input.closest(".plan").querySelector(".yearly-plan-discount");
-    note.textContent = `Save ₽${numberFormatter.format(savings)} / year`;
+    note.textContent = `Save ${currencyFormatter.format(savings)} / year`;
     note.classList.toggle("yearly-plan-discount--active", yearly);
   });
   addonInputs.forEach(input => {
